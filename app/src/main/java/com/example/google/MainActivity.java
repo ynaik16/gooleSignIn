@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
     private TextView mStatusTextView;
+    SignInButton signIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,14 @@ public class MainActivity extends AppCompatActivity {
         // Set the dimensions of the sign-in button.
         SignInButton signInButton = findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
-        findViewById(R.id.sign_in_button).setOnClickListener((View.OnClickListener) this);
+
+        signIn = findViewById(R.id.sign_in_button);
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
 
     }
 
@@ -109,20 +117,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.sign_in_button:
-                signIn();
-                break;
+    //public void onClick(View v) {
+      //  switch (v.getId()) {
+        //    case R.id.sign_in_button:
+          //      signIn();
+            //    break;
 
             //case R.id.sign_out_and_disconnect:
               //  signOut();
                 //break;
 
             // ...
-        }
-    }
+     //   }
+   // }
 
   /*  private void signOut() {
         mGoogleSignInClient.signOut()
